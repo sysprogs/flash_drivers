@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D36E11D1-20DB-4B3B-A5CE-64716E38B323}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <NMakeIncludeSearchPath>.;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\Legacy;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\CMSIS_HAL\Device\ST\STM32F7xx\Include;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\CMSIS_HAL\Include;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\CMSIS_HAL\RTOS\Template;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\BSP\STM32746G-Discovery;$(ARM_TOOLCHAIN)\arm-eabi\include\c++\5.3.0;$(ARM_TOOLCHAIN)\arm-eabi\include\c++\5.3.0\arm-eabi\thumb\cortex_m7;$(ARM_TOOLCHAIN)\arm-eabi\include\c++\5.3.0\backward;$(ARM_TOOLCHAIN)\lib\gcc\arm-eabi\5.3.0\include;$(ARM_TOOLCHAIN)\lib\gcc\arm-eabi\5.3.0\include-fixed;$(ARM_TOOLCHAIN)\arm-eabi\sys-include;$(ARM_TOOLCHAIN)\arm-eabi\include;../../common;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <NMakeForcedIncludes>$(ProjectDir)\gcc_Debug.h;$(VISUALGDB_DIR)\gcc_compat.h;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\stm32_compat.h;$(NMakeForcedIncludes)</NMakeForcedIncludes>
+    <NMakeBuildCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /build "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeBuildCommandLine>
+    <NMakeCleanCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /clean "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeCleanCommandLine>
+    <NMakeReBuildCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /rebuild "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeReBuildCommandLine>
+    <NMakeOutput>$(ProjectDir)stm32f7disco_qspi-Debug.vgdbsettings</NMakeOutput>
+    <IncludePath />
+    <ReferencePath />
+    <LibraryPath />
+    <NMakePreprocessorDefinitions>__VisualGDB_CFG_Debug;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <NMakeIncludeSearchPath>.;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\Legacy;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\CMSIS_HAL\Device\ST\STM32F7xx\Include;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\CMSIS_HAL\Include;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\CMSIS_HAL\RTOS\Template;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\BSP\STM32746G-Discovery;$(ARM_TOOLCHAIN)\arm-eabi\include\c++\5.3.0;$(ARM_TOOLCHAIN)\arm-eabi\include\c++\5.3.0\arm-eabi\thumb\cortex_m7;$(ARM_TOOLCHAIN)\arm-eabi\include\c++\5.3.0\backward;$(ARM_TOOLCHAIN)\lib\gcc\arm-eabi\5.3.0\include;$(ARM_TOOLCHAIN)\lib\gcc\arm-eabi\5.3.0\include-fixed;$(ARM_TOOLCHAIN)\arm-eabi\sys-include;$(ARM_TOOLCHAIN)\arm-eabi\include;../../common;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <NMakeForcedIncludes>$(ProjectDir)\gcc_Release.h;$(VISUALGDB_DIR)\gcc_compat.h;$(LOCALAPPDATA)\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\stm32_compat.h;$(NMakeForcedIncludes)</NMakeForcedIncludes>
+    <NMakeBuildCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /build "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeBuildCommandLine>
+    <NMakeCleanCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /clean "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeCleanCommandLine>
+    <NMakeReBuildCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /rebuild "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeReBuildCommandLine>
+    <NMakeOutput>$(ProjectDir)stm32f7disco_qspi-Release.vgdbsettings</NMakeOutput>
+    <IncludePath />
+    <ReferencePath />
+    <LibraryPath />
+    <NMakePreprocessorDefinitions>__VisualGDB_CFG_Release;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\common\FLASHPluginCommon.cpp" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\BSP\STM32746G-Discovery\stm32746g_discovery.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\BSP\STM32746G-Discovery\stm32746g_discovery_qspi.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\StartupFiles\startup_stm32f746xx.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_adc.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_adc_ex.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_can.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_cec.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_cortex.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_crc.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_crc_ex.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_cryp.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_cryp_ex.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_dac.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_dac_ex.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_dcmi.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_dcmi_ex.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_dma.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_dma2d.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_dma_ex.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_eth.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_flash.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_flash_ex.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_gpio.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_hash.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_hash_ex.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_hcd.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_i2c.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_i2c_ex.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_i2s.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_irda.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_iwdg.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_lptim.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_ltdc.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_nand.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_nor.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_pcd.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_pcd_ex.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_pwr.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_pwr_ex.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_qspi.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_rcc.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_rcc_ex.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_rng.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_rtc.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_rtc_ex.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_sai.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_sai_ex.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_sd.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_sdram.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_smartcard.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_smartcard_ex.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_spdifrx.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_spi.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_sram.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_tim.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_tim_ex.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_uart.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_usart.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_wwdg.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_ll_fmc.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_ll_sdmmc.c" />
+    <ClCompile Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_ll_usb.c" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="system_stm32f7xx.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\common\FLASHPluginInterface.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\BSP\STM32746G-Discovery\stm32746g_discovery.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\BSP\STM32746G-Discovery\stm32746g_discovery_qspi.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\CMSIS_HAL\Device\ST\STM32F7xx\Include\stm32f7xx.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\CMSIS_HAL\Device\ST\STM32F7xx\Include\system_stm32f7xx.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\CMSIS_HAL\Include\arm_common_tables.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\CMSIS_HAL\Include\arm_const_structs.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\CMSIS_HAL\Include\arm_math.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\CMSIS_HAL\Include\cmsis_armcc.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\CMSIS_HAL\Include\cmsis_armcc_V6.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\CMSIS_HAL\Include\cmsis_gcc.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\CMSIS_HAL\Include\core_cm0.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\CMSIS_HAL\Include\core_cm0plus.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\CMSIS_HAL\Include\core_cm3.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\CMSIS_HAL\Include\core_cm4.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\CMSIS_HAL\Include\core_cm7.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\CMSIS_HAL\Include\core_cmFunc.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\CMSIS_HAL\Include\core_cmInstr.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\CMSIS_HAL\Include\core_cmSimd.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\CMSIS_HAL\Include\core_sc000.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\CMSIS_HAL\Include\core_sc300.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\CMSIS_HAL\RTOS\Template\cmsis_os.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_adc.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_adc_ex.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_can.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_cec.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_cortex.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_crc.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_crc_ex.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_cryp.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_cryp_ex.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_dac.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_dac_ex.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_dcmi.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_dcmi_ex.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_def.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_dma.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_dma2d.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_dma_ex.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_eth.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_flash.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_flash_ex.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_gpio.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_gpio_ex.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_hash.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_hash_ex.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_hcd.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_i2c.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_i2c_ex.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_i2s.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_irda.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_irda_ex.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_iwdg.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_lptim.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_ltdc.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_nand.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_nor.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_pcd.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_pcd_ex.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_pwr.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_pwr_ex.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_qspi.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_rcc.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_rcc_ex.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_rng.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_rtc.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_rtc_ex.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_sai.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_sai_ex.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_sd.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_sdram.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_smartcard.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_smartcard_ex.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_spdifrx.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_spi.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_sram.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_tim.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_tim_ex.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_uart.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_uart_ex.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_usart.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_usart_ex.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_hal_wwdg.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_ll_fmc.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_ll_sdmmc.h" />
+    <ClInclude Include="C:\Users\ivan\AppData\Local\VisualGDB\EmbeddedBSPs\arm-eabi\com.sysprogs.arm.stm32\STM32F7xxxx\STM32F7xx_HAL_Driver\Inc\stm32f7xx_ll_usb.h" />
+    <ClInclude Include="FLASHPluginConfig.h" />
+    <ClInclude Include="stm32f7xx_hal_conf.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="debug.mak" />
+    <None Include="Makefile" />
+    <None Include="release.mak" />
+    <None Include="stm32.mak" />
+    <None Include="stm32f7disco_qspi-Debug.vgdbsettings" />
+    <None Include="stm32f7disco_qspi-Release.vgdbsettings" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="stm32.xml" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
