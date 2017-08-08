@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|VisualGDB">
+      <Configuration>Debug</Configuration>
+      <Platform>VisualGDB</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|VisualGDB">
+      <Configuration>Release</Configuration>
+      <Platform>VisualGDB</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{19E46D5D-F3CF-4651-BD3F-27F9A1C2D7F4}</ProjectGuid>
+    <BSP_ID>com.sysprogs.arm.stm32</BSP_ID>
+    <BSP_VERSION>4.3</BSP_VERSION>
+    <InPlaceBSPSubdir />
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|VisualGDB'">
+    <MCUPropertyListFile>$(ProjectDir)stm32.props</MCUPropertyListFile>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|VisualGDB'">
+    <MCUPropertyListFile>$(ProjectDir)stm32.props</MCUPropertyListFile>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|VisualGDB'">
+    <GNUConfigurationType>Debug</GNUConfigurationType>
+    <ToolchainID>com.visualgdb.arm-eabi</ToolchainID>
+    <ToolchainVersion>5.3.0/7.10.1/r2</ToolchainVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|VisualGDB'">
+    <ToolchainID>com.visualgdb.arm-eabi</ToolchainID>
+    <ToolchainVersion>5.3.0/7.10.1/r2</ToolchainVersion>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|VisualGDB'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>Inc;E:\projects\sysprogs-github\BSPTools\generators\stm32\Output/STM32F7xxxx/CMSIS_HAL/Device/ST/STM32F7xx/Include;E:\projects\sysprogs-github\BSPTools\generators\stm32\Output/STM32F7xxxx/STM32F7xx_HAL_Driver/Inc;E:/projects/sysprogs-github/BSPTools/generators/stm32/Output/VendorSamples/STM32Cube_FW_F7_V1.7.0/Drivers/BSP/STM32F769I_EVAL;E:/projects/sysprogs-github/BSPTools/generators/stm32/Output/VendorSamples/STM32Cube_FW_F7_V1.7.0/Drivers/BSP/Components/Common;E:/projects/sysprogs-github/BSPTools/generators/stm32/Output/VendorSamples/STM32Cube_FW_F7_V1.7.0/Utilities/Log;E:/projects/sysprogs-github/BSPTools/generators/stm32/Output/VendorSamples/STM32Cube_FW_F7_V1.7.0/Utilities/Fonts;E:/projects/sysprogs-github/BSPTools/generators/stm32/Output/VendorSamples/STM32Cube_FW_F7_V1.7.0/Utilities/CPU;E:\projects\sysprogs-github\BSPTools\generators\stm32\Output/STM32F7xxxx/CMSIS_HAL/Include;../../common;%(ClCompile.AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(ClCompile.PreprocessorDefinitions);DEBUG=1;USE_HAL_DRIVER;USE_STM32F769I_EVAL;STM32F769xx</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|VisualGDB'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>Inc;E:\projects\sysprogs-github\BSPTools\generators\stm32\Output/STM32F7xxxx/CMSIS_HAL/Device/ST/STM32F7xx/Include;E:\projects\sysprogs-github\BSPTools\generators\stm32\Output/STM32F7xxxx/STM32F7xx_HAL_Driver/Inc;E:/projects/sysprogs-github/BSPTools/generators/stm32/Output/VendorSamples/STM32Cube_FW_F7_V1.7.0/Drivers/BSP/STM32F769I_EVAL;E:/projects/sysprogs-github/BSPTools/generators/stm32/Output/VendorSamples/STM32Cube_FW_F7_V1.7.0/Drivers/BSP/Components/Common;E:/projects/sysprogs-github/BSPTools/generators/stm32/Output/VendorSamples/STM32Cube_FW_F7_V1.7.0/Utilities/Log;E:/projects/sysprogs-github/BSPTools/generators/stm32/Output/VendorSamples/STM32Cube_FW_F7_V1.7.0/Utilities/Fonts;E:/projects/sysprogs-github/BSPTools/generators/stm32/Output/VendorSamples/STM32Cube_FW_F7_V1.7.0/Utilities/CPU;E:\projects\sysprogs-github\BSPTools\generators\stm32\Output/STM32F7xxxx/CMSIS_HAL/Include;../../common;%(ClCompile.AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(ClCompile.PreprocessorDefinitions);NDEBUG=1;RELEASE=1;USE_HAL_DRIVER;USE_STM32F769I_EVAL;STM32F769xx</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ItemGroup>
+    <ClCompile Include="stm32f769i_eval_qspi.c" />
+    <None Include="readme.txt" />
+    <ClCompile Include="..\..\common\FLASHPluginCommon.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Src\system_stm32f7xx.c" />
+    <ClCompile Include="..\..\..\..\..\..\projects\sysprogs-github\BSPTools\generators\stm32\Output\VendorSamples\STM32Cube_FW_F7_V1.7.0\Drivers\BSP\STM32F769I_EVAL\stm32f769i_eval.c" />
+    <ClCompile Include="..\..\..\..\..\..\projects\sysprogs-github\BSPTools\generators\stm32\Output\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_uart.c" />
+    <ClCompile Include="..\..\..\..\..\..\projects\sysprogs-github\BSPTools\generators\stm32\Output\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_adc.c" />
+    <ClCompile Include="..\..\..\..\..\..\projects\sysprogs-github\BSPTools\generators\stm32\Output\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_pwr.c" />
+    <ClCompile Include="..\..\..\..\..\..\projects\sysprogs-github\BSPTools\generators\stm32\Output\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_pwr_ex.c" />
+    <ClCompile Include="..\..\..\..\..\..\projects\sysprogs-github\BSPTools\generators\stm32\Output\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_cortex.c" />
+    <ClCompile Include="..\..\..\..\..\..\projects\sysprogs-github\BSPTools\generators\stm32\Output\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_dma.c" />
+    <ClCompile Include="..\..\..\..\..\..\projects\sysprogs-github\BSPTools\generators\stm32\Output\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_flash.c" />
+    <ClCompile Include="..\..\..\..\..\..\projects\sysprogs-github\BSPTools\generators\stm32\Output\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_rcc_ex.c" />
+    <ClCompile Include="..\..\..\..\..\..\projects\sysprogs-github\BSPTools\generators\stm32\Output\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_rcc.c" />
+    <ClCompile Include="..\..\..\..\..\..\projects\sysprogs-github\BSPTools\generators\stm32\Output\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_i2c.c" />
+    <ClCompile Include="..\..\..\..\..\..\projects\sysprogs-github\BSPTools\generators\stm32\Output\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal.c" />
+    <ClCompile Include="..\..\..\..\..\..\projects\sysprogs-github\BSPTools\generators\stm32\Output\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_adc_ex.c" />
+    <ClCompile Include="..\..\..\..\..\..\projects\sysprogs-github\BSPTools\generators\stm32\Output\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_flash_ex.c" />
+    <ClCompile Include="..\..\..\..\..\..\projects\sysprogs-github\BSPTools\generators\stm32\Output\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_qspi.c" />
+    <ClCompile Include="..\..\..\..\..\..\projects\sysprogs-github\BSPTools\generators\stm32\Output\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_gpio.c" />
+    <None Include="stm32.props" />
+    <ClCompile Include="$(BSP_ROOT)\STM32F7xxxx\StartupFiles\startup_stm32f769xx.c" />
+    <ClInclude Include="Inc\main.h" />
+    <ClInclude Include="Inc\stm32f7xx_hal_conf.h" />
+    <ClInclude Include="Inc\stm32f7xx_it.h" />
+    <None Include="stm32f769_disco_qspi-Debug.vgdbsettings" />
+    <None Include="stm32f769_disco_qspi-Release.vgdbsettings" />
+    <None Include="stm32.xml" />
+  </ItemGroup>
+</Project>

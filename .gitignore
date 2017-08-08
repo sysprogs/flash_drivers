@@ -40,3 +40,4 @@ Release
 VisualGDBCache
 *.old
 *.opendb
+.vs

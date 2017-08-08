@@ -1,8 +1,11 @@
 <?xml version="1.0"?>
 <EmbeddedProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ToolchainID>com.visualgdb.arm-eabi</ToolchainID>
+  <ToolchainVersion>
+    <Revision>0</Revision>
+  </ToolchainVersion>
   <BspID>com.sysprogs.arm.stm32</BspID>
-  <BspVersion>3.5</BspVersion>
+  <BspVersion>3.6</BspVersion>
   <McuID>STM32F746NG</McuID>
   <MCUDefinitionFile>STM32F7xxxx/DeviceDefinitions/stm32f746xx.xml</MCUDefinitionFile>
   <MCUProperties>

@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.15
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "stm32f7disco_qspi", "stm32f7disco_qspi.vcxproj", "{D36E11D1-20DB-4B3B-A5CE-64716E38B323}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "stm32f769_disco_qspi", "stm32f769_disco_qspi.vcxproj", "{19E46D5D-F3CF-4651-BD3F-27F9A1C2D7F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -10,10 +10,10 @@ Global
 		Release|VisualGDB = Release|VisualGDB
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D36E11D1-20DB-4B3B-A5CE-64716E38B323}.Debug|VisualGDB.ActiveCfg = Debug|VisualGDB
-		{D36E11D1-20DB-4B3B-A5CE-64716E38B323}.Debug|VisualGDB.Build.0 = Debug|VisualGDB
-		{D36E11D1-20DB-4B3B-A5CE-64716E38B323}.Release|VisualGDB.ActiveCfg = Release|VisualGDB
-		{D36E11D1-20DB-4B3B-A5CE-64716E38B323}.Release|VisualGDB.Build.0 = Release|VisualGDB
+		{19E46D5D-F3CF-4651-BD3F-27F9A1C2D7F4}.Debug|VisualGDB.ActiveCfg = Debug|VisualGDB
+		{19E46D5D-F3CF-4651-BD3F-27F9A1C2D7F4}.Debug|VisualGDB.Build.0 = Debug|VisualGDB
+		{19E46D5D-F3CF-4651-BD3F-27F9A1C2D7F4}.Release|VisualGDB.ActiveCfg = Release|VisualGDB
+		{19E46D5D-F3CF-4651-BD3F-27F9A1C2D7F4}.Release|VisualGDB.Build.0 = Release|VisualGDB
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

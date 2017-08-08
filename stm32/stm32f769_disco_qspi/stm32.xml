@@ -2,12 +2,14 @@
 <EmbeddedProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ToolchainID>com.visualgdb.arm-eabi</ToolchainID>
   <ToolchainVersion>
-    <Revision>0</Revision>
+    <GCC>5.3.0</GCC>
+    <GDB>7.10.1</GDB>
+    <Revision>2</Revision>
   </ToolchainVersion>
   <BspID>com.sysprogs.arm.stm32</BspID>
-  <BspVersion>3.6</BspVersion>
-  <McuID>STM32F746NG</McuID>
-  <MCUDefinitionFile>STM32F7xxxx/DeviceDefinitions/stm32f746xx.xml</MCUDefinitionFile>
+  <BspVersion>4.3</BspVersion>
+  <McuID>STM32F769NI</McuID>
+  <MCUDefinitionFile>STM32F7xxxx/DeviceDefinitions/stm32f769xx.xml</MCUDefinitionFile>
   <MCUProperties>
     <Entries>
       <KeyValue>
@@ -34,22 +36,11 @@
   </MCUProperties>
   <BSPSourceFolderName>Device-specific files</BSPSourceFolderName>
   <MCUMakFile>stm32.mak</MCUMakFile>
-  <ReferencedFrameworks>
-    <string>com.sysprogs.arm.stm32.hal</string>
-  </ReferencedFrameworks>
+  <ReferencedFrameworks />
   <FrameworkProperties>
     <Entries />
   </FrameworkProperties>
-  <ExtraMemories>
-    <ExtraMemoryDefinition>
-      <Name>QSPI</Name>
-      <Address>2415919104</Address>
-      <Size>1048576</Size>
-      <Type>FLASH</Type>
-      <ContainsText>true</ContainsText>
-      <ContainsData>true</ContainsData>
-      <ContainsBSS>true</ContainsBSS>
-    </ExtraMemoryDefinition>
-  </ExtraMemories>
-  <EditableLinkerScriptFile>STM32F746NG_flash.lds</EditableLinkerScriptFile>
+  <TestFrameworkProperties>
+    <Entries />
+  </TestFrameworkProperties>
 </EmbeddedProfile>

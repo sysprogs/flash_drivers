@@ -29,8 +29,8 @@ FLASHBankInfo FLASHPlugin_Probe(unsigned base, unsigned size, unsigned width1, u
     
 	FLASHBankInfo result = {
 		.BaseAddress = base, 
-		.BlockCount = N25Q128A_FLASH_SIZE / N25Q128A_SUBSECTOR_SIZE, 
-		.BlockSize = N25Q128A_SUBSECTOR_SIZE,
+		.BlockCount = N25Q512A_FLASH_SIZE / N25Q512A_SUBSECTOR_SIZE, 
+		.BlockSize = N25Q512A_SUBSECTOR_SIZE,
 		.WriteBlockSize = MINIMUM_PROGRAMMED_BLOCK_SIZE
 	};
 	return result;
@@ -55,7 +55,7 @@ int FLASHPlugin_EraseSectors(unsigned firstSector, unsigned sectorCount)
     	if ((HAL_GetTick() - initialTick) > timeout)
         	return i;   //OpenOCD will continue the erase operation
 
-    	uint8_t error = BSP_QSPI_Erase_Block((firstSector + i) * N25Q128A_SUBSECTOR_SIZE);
+    	uint8_t error = BSP_QSPI_Erase_Block((firstSector + i) * N25Q512A_SUBSECTOR_SIZE);
 		if (error != QSPI_OK)
 			return -1;
 	}

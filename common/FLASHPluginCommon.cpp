@@ -109,7 +109,7 @@ void TestFLASHProgramming(unsigned base, unsigned size)
 {
 	FLASHBankInfo info = FLASHPlugin_Probe(base, size, 0, 0);
     
-    unsigned result = FLASHPlugin_EraseSectors(0, 1);
+    unsigned result = FLASHPlugin_EraseSectors(0, 4000);
     if (result != 1)
         asm("bkpt 255");
     

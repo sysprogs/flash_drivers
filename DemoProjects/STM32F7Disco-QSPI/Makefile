@@ -35,71 +35,7 @@ error:
 	$(error Invalid configuration, please check your inputs)
 endif
 
-SOURCEFILES := $(BSP_ROOT)/STM32F7xxxx/StartupFiles/startup_stm32f746xx.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_adc.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_adc_ex.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_can.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cec.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cortex.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_crc.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_crc_ex.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cryp.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cryp_ex.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dac.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dac_ex.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dcmi.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dcmi_ex.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma2d.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma_ex.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_eth.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash_ex.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_gpio.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_hash.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_hash_ex.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_hcd.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2c.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2c_ex.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2s.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_irda.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_iwdg.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_lptim.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_ltdc.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_nand.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_nor.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pcd.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pcd_ex.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr_ex.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_qspi.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc_ex.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rng.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rtc.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rtc_ex.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sai.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sai_ex.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sd.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sdram.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_smartcard.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_smartcard_ex.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_spdifrx.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_spi.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sram.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_tim.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_tim_ex.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_uart.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_usart.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_wwdg.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_fmc.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_sdmmc.c \
-	$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_usb.c \
-	ExtraMemories.c \
-	LEDBlink.cpp \
-	QSPI.cpp \
-	system_stm32f7xx.c
+SOURCEFILES := ExtraMemories.c LEDBlink.cpp QSPI.cpp system_stm32f7xx.c $(BSP_ROOT)/STM32F7xxxx/StartupFiles/startup_stm32f746xx.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_adc.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_adc_ex.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_can.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cec.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cortex.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_crc.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_crc_ex.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cryp.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cryp_ex.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dac.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dac_ex.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dcmi.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dcmi_ex.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma2d.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma_ex.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_eth.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash_ex.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_gpio.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_hash.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_hash_ex.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_hcd.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2c.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2c_ex.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2s.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_irda.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_iwdg.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_lptim.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_ltdc.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_nand.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_nor.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pcd.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pcd_ex.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr_ex.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_qspi.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc_ex.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rng.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rtc.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rtc_ex.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sai.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sai_ex.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sd.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sdram.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_smartcard.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_smartcard_ex.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_spdifrx.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_spi.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sram.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_tim.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_tim_ex.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_uart.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_usart.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_wwdg.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_fmc.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_sdmmc.c $(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_usb.c
 EXTERNAL_LIBS := 
 EXTERNAL_LIBS_COPIED := $(foreach lib, $(EXTERNAL_LIBS),$(BINARYDIR)/$(notdir $(lib)))
 
