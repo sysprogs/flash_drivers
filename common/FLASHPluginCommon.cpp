@@ -5,6 +5,39 @@
 #error Please define MINIMUM_PROGRAMMED_BLOCK_SIZE in your FLASHPluginConfig.h
 #endif
 
+struct plugin_timeouts
+{
+    unsigned erase;
+    unsigned write;
+    unsigned init;
+    unsigned load;
+    unsigned protect;
+};
+
+struct image_plugin_timeouts
+{
+    unsigned size;
+    struct plugin_timeouts timeouts;
+};
+
+
+//If you want to override default time-out values for the plugin, provide another definition of FLASHPlugin_TimeoutTable in your plugin sources.
+extern "C" 
+{
+    __attribute__((weak)) image_plugin_timeouts FLASHPlugin_TimeoutTable = 
+    { 
+        .size = sizeof(struct plugin_timeouts),
+        .timeouts =
+        { 
+            .erase = 60000,
+            .write = 1000,
+            .init = 1000,
+            .load = 10000,
+            .protect = 1000,
+        }
+    };
+}
+
 volatile void * __attribute__((used)) g_FunctionTable[] = { 
     (void *)&FLASHPlugin_Unload,
     (void *)&FLASHPlugin_Probe,
@@ -19,7 +52,7 @@ volatile void * __attribute__((used)) g_FunctionTable[] = {
 void FLASHPlugin_InitDone()
 {
     asm("cpsid i");
-    g_FunctionTable[0] = 0;
+    g_FunctionTable[0] = (void *)&FLASHPlugin_TimeoutTable;
 }
 
 int FLASHPlugin_NotImplemented()
@@ -107,7 +140,7 @@ int FLASHPlugin_ProgramAsync(unsigned startOffset, FIFOHeader *pData, const void
 
 void TestFLASHProgramming(unsigned base, unsigned size)
 {
-	FLASHBankInfo info = FLASHPlugin_Probe(base, size, 0, 0);
+    FLASHBankInfo info = FLASHPlugin_Probe(base, size, 0, 0);
     
     unsigned result = FLASHPlugin_EraseSectors(0, 4000);
     if (result != 1)
@@ -126,6 +159,6 @@ void TestFLASHProgramming(unsigned base, unsigned size)
         asm("bkpt 255");
     
     //After FLASHPlugin_ProgramAsync() data, it should set the ReadPointer at the end of the consumed block.
-    if (pHeader->ReadPointer != pHeader->WritePointer)
+    if(pHeader->ReadPointer != pHeader->WritePointer)
         asm("bkpt 255");
 }
