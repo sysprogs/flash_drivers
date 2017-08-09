@@ -41,13 +41,13 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|VisualGDB'">
     <ClCompile>
-      <AdditionalIncludeDirectories>Inc;E:\projects\sysprogs-github\BSPTools\generators\stm32\Output/STM32F7xxxx/CMSIS_HAL/Device/ST/STM32F7xx/Include;E:\projects\sysprogs-github\BSPTools\generators\stm32\Output/STM32F7xxxx/STM32F7xx_HAL_Driver/Inc;E:/projects/sysprogs-github/BSPTools/generators/stm32/Output/VendorSamples/STM32Cube_FW_F7_V1.7.0/Drivers/BSP/STM32F769I_EVAL;E:/projects/sysprogs-github/BSPTools/generators/stm32/Output/VendorSamples/STM32Cube_FW_F7_V1.7.0/Drivers/BSP/Components/Common;E:/projects/sysprogs-github/BSPTools/generators/stm32/Output/VendorSamples/STM32Cube_FW_F7_V1.7.0/Utilities/Log;E:/projects/sysprogs-github/BSPTools/generators/stm32/Output/VendorSamples/STM32Cube_FW_F7_V1.7.0/Utilities/Fonts;E:/projects/sysprogs-github/BSPTools/generators/stm32/Output/VendorSamples/STM32Cube_FW_F7_V1.7.0/Utilities/CPU;E:\projects\sysprogs-github\BSPTools\generators\stm32\Output/STM32F7xxxx/CMSIS_HAL/Include;../../common;%(ClCompile.AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>Inc;..\..\common;$(BSP_ROOT)/STM32F7xxxx/CMSIS_HAL/Device/ST/STM32F7xx/Include;$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Inc;$(BSP_ROOT)/VendorSamples/STM32Cube_FW_F7_V1.7.0/Drivers/BSP/STM32F769I_EVAL;$(BSP_ROOT)/VendorSamples/STM32Cube_FW_F7_V1.7.0/Drivers/BSP/Components/Common;$(BSP_ROOT)/VendorSamples/STM32Cube_FW_F7_V1.7.0/Utilities/Log;$(BSP_ROOT)/VendorSamples/STM32Cube_FW_F7_V1.7.0/Utilities/Fonts;$(BSP_ROOT)/VendorSamples/STM32Cube_FW_F7_V1.7.0/Utilities/CPU;$(BSP_ROOT)/STM32F7xxxx/CMSIS_HAL/Include;%(ClCompile.AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>%(ClCompile.PreprocessorDefinitions);DEBUG=1;USE_HAL_DRIVER;USE_STM32F769I_EVAL;STM32F769xx</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|VisualGDB'">
     <ClCompile>
-      <AdditionalIncludeDirectories>Inc;E:\projects\sysprogs-github\BSPTools\generators\stm32\Output/STM32F7xxxx/CMSIS_HAL/Device/ST/STM32F7xx/Include;E:\projects\sysprogs-github\BSPTools\generators\stm32\Output/STM32F7xxxx/STM32F7xx_HAL_Driver/Inc;E:/projects/sysprogs-github/BSPTools/generators/stm32/Output/VendorSamples/STM32Cube_FW_F7_V1.7.0/Drivers/BSP/STM32F769I_EVAL;E:/projects/sysprogs-github/BSPTools/generators/stm32/Output/VendorSamples/STM32Cube_FW_F7_V1.7.0/Drivers/BSP/Components/Common;E:/projects/sysprogs-github/BSPTools/generators/stm32/Output/VendorSamples/STM32Cube_FW_F7_V1.7.0/Utilities/Log;E:/projects/sysprogs-github/BSPTools/generators/stm32/Output/VendorSamples/STM32Cube_FW_F7_V1.7.0/Utilities/Fonts;E:/projects/sysprogs-github/BSPTools/generators/stm32/Output/VendorSamples/STM32Cube_FW_F7_V1.7.0/Utilities/CPU;E:\projects\sysprogs-github\BSPTools\generators\stm32\Output/STM32F7xxxx/CMSIS_HAL/Include;../../common;%(ClCompile.AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>Inc;..\..\common;$(BSP_ROOT)/STM32F7xxxx/CMSIS_HAL/Device/ST/STM32F7xx/Include;$(BSP_ROOT)/STM32F7xxxx/STM32F7xx_HAL_Driver/Inc;$(BSP_ROOT)/VendorSamples/STM32Cube_FW_F7_V1.7.0/Drivers/BSP/STM32F769I_EVAL;$(BSP_ROOT)/VendorSamples/STM32Cube_FW_F7_V1.7.0/Drivers/BSP/Components/Common;$(BSP_ROOT)/VendorSamples/STM32Cube_FW_F7_V1.7.0/Utilities/Log;$(BSP_ROOT)/VendorSamples/STM32Cube_FW_F7_V1.7.0/Utilities/Fonts;$(BSP_ROOT)/VendorSamples/STM32Cube_FW_F7_V1.7.0/Utilities/CPU;$(BSP_ROOT)/STM32F7xxxx/CMSIS_HAL/Include;%(ClCompile.AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>%(ClCompile.PreprocessorDefinitions);NDEBUG=1;RELEASE=1;USE_HAL_DRIVER;USE_STM32F769I_EVAL;STM32F769xx</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
@@ -62,22 +62,22 @@
     <ClCompile Include="..\..\common\FLASHPluginCommon.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Src\system_stm32f7xx.c" />
-    <ClCompile Include="..\..\..\..\..\..\projects\sysprogs-github\BSPTools\generators\stm32\Output\VendorSamples\STM32Cube_FW_F7_V1.7.0\Drivers\BSP\STM32F769I_EVAL\stm32f769i_eval.c" />
-    <ClCompile Include="..\..\..\..\..\..\projects\sysprogs-github\BSPTools\generators\stm32\Output\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_uart.c" />
-    <ClCompile Include="..\..\..\..\..\..\projects\sysprogs-github\BSPTools\generators\stm32\Output\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_adc.c" />
-    <ClCompile Include="..\..\..\..\..\..\projects\sysprogs-github\BSPTools\generators\stm32\Output\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_pwr.c" />
-    <ClCompile Include="..\..\..\..\..\..\projects\sysprogs-github\BSPTools\generators\stm32\Output\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_pwr_ex.c" />
-    <ClCompile Include="..\..\..\..\..\..\projects\sysprogs-github\BSPTools\generators\stm32\Output\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_cortex.c" />
-    <ClCompile Include="..\..\..\..\..\..\projects\sysprogs-github\BSPTools\generators\stm32\Output\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_dma.c" />
-    <ClCompile Include="..\..\..\..\..\..\projects\sysprogs-github\BSPTools\generators\stm32\Output\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_flash.c" />
-    <ClCompile Include="..\..\..\..\..\..\projects\sysprogs-github\BSPTools\generators\stm32\Output\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_rcc_ex.c" />
-    <ClCompile Include="..\..\..\..\..\..\projects\sysprogs-github\BSPTools\generators\stm32\Output\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_rcc.c" />
-    <ClCompile Include="..\..\..\..\..\..\projects\sysprogs-github\BSPTools\generators\stm32\Output\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_i2c.c" />
-    <ClCompile Include="..\..\..\..\..\..\projects\sysprogs-github\BSPTools\generators\stm32\Output\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal.c" />
-    <ClCompile Include="..\..\..\..\..\..\projects\sysprogs-github\BSPTools\generators\stm32\Output\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_adc_ex.c" />
-    <ClCompile Include="..\..\..\..\..\..\projects\sysprogs-github\BSPTools\generators\stm32\Output\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_flash_ex.c" />
-    <ClCompile Include="..\..\..\..\..\..\projects\sysprogs-github\BSPTools\generators\stm32\Output\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_qspi.c" />
-    <ClCompile Include="..\..\..\..\..\..\projects\sysprogs-github\BSPTools\generators\stm32\Output\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_gpio.c" />
+    <ClCompile Include="$(BSP_ROOT)\VendorSamples\STM32Cube_FW_F7_V1.7.0\Drivers\BSP\STM32F769I_EVAL\stm32f769i_eval.c" />
+    <ClCompile Include="$(BSP_ROOT)\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_uart.c" />
+    <ClCompile Include="$(BSP_ROOT)\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_adc.c" />
+    <ClCompile Include="$(BSP_ROOT)\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_pwr.c" />
+    <ClCompile Include="$(BSP_ROOT)\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_pwr_ex.c" />
+    <ClCompile Include="$(BSP_ROOT)\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_cortex.c" />
+    <ClCompile Include="$(BSP_ROOT)\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_dma.c" />
+    <ClCompile Include="$(BSP_ROOT)\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_flash.c" />
+    <ClCompile Include="$(BSP_ROOT)\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_rcc_ex.c" />
+    <ClCompile Include="$(BSP_ROOT)\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_rcc.c" />
+    <ClCompile Include="$(BSP_ROOT)\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_i2c.c" />
+    <ClCompile Include="$(BSP_ROOT)\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal.c" />
+    <ClCompile Include="$(BSP_ROOT)\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_adc_ex.c" />
+    <ClCompile Include="$(BSP_ROOT)\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_flash_ex.c" />
+    <ClCompile Include="$(BSP_ROOT)\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_qspi.c" />
+    <ClCompile Include="$(BSP_ROOT)\STM32F7xxxx\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_gpio.c" />
     <None Include="stm32.props" />
     <ClCompile Include="$(BSP_ROOT)\STM32F7xxxx\StartupFiles\startup_stm32f769xx.c" />
     <ClInclude Include="Inc\main.h" />
