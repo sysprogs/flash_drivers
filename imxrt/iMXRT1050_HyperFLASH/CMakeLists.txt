@@ -5,7 +5,7 @@ project(iMXRT1050_HyperFLASH LANGUAGES C CXX ASM)
 find_bsp(ID com.sysprogs.imported.ksdk2x.MIMXRT1052xxxxB
 	VERSION 2.9.1
 	MCU MIMXRT1052DVL6B
-	CONFIGURATION com.sysprogs.bspoptions.arm.floatmode=-mfloat-abi=hard
+	CONFIGURATION com.sysprogs.imported.ksdk2x.linker_script=devices/MIMXRT1052/gcc/MIMXRT1052xxxxx_ram.ld
 	FRAMEWORKS
 		com.sysprogs.ksdk2x_imported.utility.debug_console_lite.MIMXRT1052
 		com.sysprogs.ksdk2x_imported.platform.utilities.assert_lite.MIMXRT1052
@@ -38,7 +38,6 @@ bsp_compile_definitions(CPU_MIMXRT1052DVL6B
 	XIP_BOOT_HEADER_ENABLE=1)
 
 add_bsp_based_executable(NAME iMXRT1050_HyperFLASH
-	LINKER_SCRIPT ${BSP_ROOT}/boards/evkbimxrt1050/driver_examples/flexspi/hyper_flash/polling_transfer/armgcc/MIMXRT1052xxxxx_flexspi_nor.ld
 	SOURCES
 		flexspi_hyper_flash_polling_transfer.c
 		flexspi_hyper_flash_ops.c
