@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{803FD0C6-D64E-4E16-9DC3-1DAEC859A3D2}") = "iMXRT1064_Internal", "iMXRT1064_Internal.vgdbcmake", "{C70CF3B4-CA9F-4507-B198-19BBD1306A92}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|VisualGDB = Debug|VisualGDB
+		MinSizeRel|VisualGDB = MinSizeRel|VisualGDB
+		Release|VisualGDB = Release|VisualGDB
+		RelWithDebInfo|VisualGDB = RelWithDebInfo|VisualGDB
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C70CF3B4-CA9F-4507-B198-19BBD1306A92}.Debug|VisualGDB.ActiveCfg = Debug|VisualGDB
+		{C70CF3B4-CA9F-4507-B198-19BBD1306A92}.Debug|VisualGDB.Build.0 = Debug|VisualGDB
+		{C70CF3B4-CA9F-4507-B198-19BBD1306A92}.MinSizeRel|VisualGDB.ActiveCfg = MinSizeRel|VisualGDB
+		{C70CF3B4-CA9F-4507-B198-19BBD1306A92}.MinSizeRel|VisualGDB.Build.0 = MinSizeRel|VisualGDB
+		{C70CF3B4-CA9F-4507-B198-19BBD1306A92}.Release|VisualGDB.ActiveCfg = Release|VisualGDB
+		{C70CF3B4-CA9F-4507-B198-19BBD1306A92}.Release|VisualGDB.Build.0 = Release|VisualGDB
+		{C70CF3B4-CA9F-4507-B198-19BBD1306A92}.RelWithDebInfo|VisualGDB.ActiveCfg = RelWithDebInfo|VisualGDB
+		{C70CF3B4-CA9F-4507-B198-19BBD1306A92}.RelWithDebInfo|VisualGDB.Build.0 = RelWithDebInfo|VisualGDB
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {924E45A8-11D8-45DC-8A71-C1207AC04612}
+	EndGlobalSection
+EndGlobal
