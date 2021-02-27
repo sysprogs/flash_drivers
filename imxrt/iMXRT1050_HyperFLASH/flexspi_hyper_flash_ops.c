@@ -42,10 +42,17 @@ void flexspi_hyper_flash_init(void)
     }
 #endif /* __DCACHE_PRESENT */
 
+	/*  If we are running this right after the chip reset, the boot ROM code has not initialized the FlexSPI hardware yet, 
+	 *  so the status register may contain unpredictable flags and the wait may never return.
+	 *  
+	 *  FLEXSPI_Init() below will take care of properly resetting the FlexSPI hardware, hence waiting for the busy flag to clear here is not necessary.
+	 */
+#if 0 
     /* Wait for bus to be idle before changing flash configuration. */
     while (false == FLEXSPI_GetBusIdleStatus(EXAMPLE_FLEXSPI))
     {
     }
+#endif
 
     flexspi_clock_init();
 
