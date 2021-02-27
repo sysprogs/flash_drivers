@@ -40,7 +40,6 @@ bsp_compile_definitions(CPU_MIMXRT1064DVL6A
 	XIP_BOOT_HEADER_ENABLE=1)
 
 add_bsp_based_executable(NAME iMXRT1064_Internal
-	LINKER_SCRIPT ${BSP_ROOT}/boards/evkmimxrt1064/driver_examples/flexspi/nor/polling_transfer/armgcc/MIMXRT1064xxxxx_flexspi_nor.ld
 	SOURCES
 		flexspi_nor_polling_transfer.c
 		flexspi_nor_flash_ops.c
