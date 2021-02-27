@@ -332,7 +332,5 @@ int main(void)
         PRINTF("FLEXSPI hyperflash example successfully. \r\n");
     }
 
-    while (1)
-    {
-    }
+	asm("bkpt 255");
 }

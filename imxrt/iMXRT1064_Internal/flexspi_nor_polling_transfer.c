@@ -224,7 +224,5 @@ int main(void)
         PRINTF("Program data - successfully. \r\n");
     }
 
-    while (1)
-    {
-    }
+	asm("bkpt 255");
 }
