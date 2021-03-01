@@ -19,12 +19,7 @@
 /*! @brief The board name */
 #define BOARD_NAME "IMXRT1050-EVKB"
 
-/* The UART to use for debug messages. */
-#define BOARD_DEBUG_UART_TYPE     kSerialPort_Uart
-#define BOARD_DEBUG_UART_BASEADDR (uint32_t) LPUART1
-#define BOARD_DEBUG_UART_INSTANCE 1U
-
-#define BOARD_DEBUG_UART_CLK_FREQ BOARD_DebugConsoleSrcFreq()
+#define PRINTF(...)
 
 #define BOARD_UART_IRQ         LPUART1_IRQn
 #define BOARD_UART_IRQ_HANDLER LPUART1_IRQHandler

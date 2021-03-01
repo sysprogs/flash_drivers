@@ -6,7 +6,6 @@
  */
 
 #include "fsl_romapi.h"
-#include "fsl_debug_console.h"
 #include "fsl_cache.h"
 
 #include "pin_mux.h"
@@ -272,10 +271,9 @@ int main(void)
     uint32_t serialNorSectorSize;
     uint32_t serialNorPageSize;
 
-    BOARD_ConfigMPU();
+    //BOARD_ConfigMPU();
     BOARD_InitPins();
-    BOARD_BootClockRUN();
-    BOARD_InitDebugConsole();
+    //BOARD_BootClockRUN();
 
     PRINTF("\r\n FLEXSPI NOR example started!\r\n");
     /* Clean up FLEXSPI NOR flash driver Structure */
