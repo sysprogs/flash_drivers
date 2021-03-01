@@ -155,6 +155,7 @@
         <StartupCommands>
           <string>set remotetimeout 60</string>
           <string>target remote :$$SYS:GDB_PORT$$</string>
+          <string>mon reset_into_boot_rom 1</string>
           <string>mon halt</string>
           <string>mon reset init</string>
           <string>load</string>
