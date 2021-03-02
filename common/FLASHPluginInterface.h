@@ -49,6 +49,7 @@ struct FIFOHeader
     char * volatile ReadPointer;
 };
 
+#ifdef __cplusplus
 class InterruptEnabler
 {
 public:
@@ -62,18 +63,21 @@ public:
         asm("cpsid i");
     }
 };
+#endif
 
+#ifdef __cplusplus
 extern "C"
 {
+#endif
     //This function checks the FLASH bank and returns the general information about it. The base, size, chipWidth and busWidth arguments come from the
     //arguments to the 'flash bank' command in OpenOCD and can be ignored or used to compute the FLASH parameters depending on the implementation.
-    FLASHBankInfo FLASHPlugin_Probe(unsigned base, unsigned size, unsigned chipWidth, unsigned busWidth);
+    struct FLASHBankInfo FLASHPlugin_Probe(unsigned base, unsigned size, unsigned chipWidth, unsigned busWidth);
     
     //This function is called by OpenOCD to locate the region of RAM that will be used to transfer data between the PC and the plugin.
     //endOfStack points to the end of the stack area allocated by OpenOCD directly beyond the bounds of the image. It is not equal to the usual _estack that points to
     //the end of RAM. If the FLASH plugin is designed to run on several different devices with different RAM sizes, it can detect the end of RAM in this function and return
     //the area between the endOfStack and end of RAM as the work area.
-    WorkAreaInfo FLASHPlugin_FindWorkArea(void *endOfStack);
+    struct WorkAreaInfo FLASHPlugin_FindWorkArea(void *endOfStack);
     
     //This function simply erases 'sectorCount' sectors starting from 'firstSector'. It should return the amount of sectors successfully erased or a negative value to indicate an error.
     int FLASHPlugin_EraseSectors(unsigned firstSector, unsigned sectorCount);    
@@ -90,7 +94,7 @@ extern "C"
     //This function performs asynchronous programming. OpenOCD will modify the WritePointer field of 'pData' each time it writes new data to the buffer and will expect the function to
     //update the ReadPointer field each time it reads a chunk of data. The WritePointer/ReadPointer will only be updated in multiples of WriteBlockSize returned in FLASHPlugin_Probe().
     //The FLASH plugin framework provides a default implementation of this method in FLASHPluginCommon.cpp that calls FLASHPlugin_DoProgramSync() to perform the actual programming.
-    int FLASHPlugin_ProgramAsync(unsigned startOffset, FIFOHeader *pData, const void *pEndOfData, unsigned bytesToWrite);
+    int FLASHPlugin_ProgramAsync(unsigned startOffset, struct FIFOHeader *pData, const void *pEndOfData, unsigned bytesToWrite);
     
     //This function should be called by the plugin once it completes initialization. The contents of the function is arbitrary. OpenOCD will set a breakpoint in this function to detect
     //when the initialization completes. Once the breakpoint triggers, OpenOCD will intercept the program flow and call various FLASHPlugin() functions.
@@ -107,12 +111,18 @@ extern "C"
     //This function is called by FLASHPlugin_ProgramAsync() to perform the actual programming. It should return the amount of bytes successfully programmed or a negative value to indicate an error.
     //The bytesToWrite will always be a multiple of WriteBlockSize except for the last block.
     int FLASHPlugin_DoProgramSync(unsigned startOffset, const void *pData, int bytesToWrite);    
+#ifdef __cplusplus
 }
+#endif
 
 //Test interface
+#ifdef __cplusplus
 extern "C"
 {
+#endif
     //This function will try programming fixed values into the FLASH memory using the interface functions as if OpenOCD was calling them.
     //Step through it in the debugger to test out your FLASH driver. It is NOT a part of the API called by OpenOCD.
     void TestFLASHProgramming(unsigned base, unsigned size);
+#ifdef __cplusplus
 }
+#endif

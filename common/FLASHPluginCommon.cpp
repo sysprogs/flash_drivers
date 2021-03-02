@@ -137,25 +137,26 @@ int FLASHPlugin_ProgramAsync(unsigned startOffset, FIFOHeader *pData, const void
 
 #include <string.h>
 #include <alloca.h>
+#include <algorithm>
 
 void TestFLASHProgramming(unsigned base, unsigned size)
 {
     FLASHBankInfo info = FLASHPlugin_Probe(base, size, 0, 0);
     
-    unsigned result = FLASHPlugin_EraseSectors(0, 4000);
-    if (result != 1)
+    unsigned result = FLASHPlugin_EraseSectors(0, std::min(400, (int)info.BlockCount));
+    if (result <= 0)
         asm("bkpt 255");
     
-    FIFOHeader *pHeader = (FIFOHeader *)alloca(sizeof(FIFOHeader) + info.BlockSize * 2);
+    FIFOHeader *pHeader = (FIFOHeader *)alloca(sizeof(FIFOHeader) + info.WriteBlockSize * 2);
     pHeader->WritePointer = pHeader->ReadPointer = (char *)(pHeader + 1);
-    memset(pHeader + 1, 0x55, info.BlockSize);
-    pHeader->WritePointer += info.BlockSize;
+	memset(pHeader + 1, 0x55, info.WriteBlockSize);
+	pHeader->WritePointer += info.WriteBlockSize;
         
-    //Normally OpenOCD will launch this method and then start updating pHeader->WritePointer whlie the method is running.
+    //Normally OpenOCD will launch this method and then start updating pHeader->WritePointer while the method is running.
     //This test function pre-initializes WritePointer to indicate that exactly one block has been written to the buffer
     //so that the FLASHPlugin_ProgramAsync() will succeed without any further modifications.
-    result = FLASHPlugin_ProgramAsync(0, pHeader, (char *)(pHeader + 1) + info.BlockSize * 2, info.BlockSize);
-    if (result != info.BlockSize)
+    result = FLASHPlugin_ProgramAsync(0, pHeader, (char *)(pHeader + 1) + info.WriteBlockSize * 2, info.WriteBlockSize);
+	if (result != info.WriteBlockSize)
         asm("bkpt 255");
     
     //After FLASHPlugin_ProgramAsync() data, it should set the ReadPointer at the end of the consumed block.
