@@ -41,7 +41,7 @@ bsp_compile_definitions(CPU_MIMXRT1064DVL6A
 
 add_bsp_based_executable(NAME iMXRT1064_Internal_ROMAPI
 	SOURCES
-		flexspi_romapi.c
+		main.cpp
 		pin_mux.c
 		board.c
 		clock_config.c
@@ -50,5 +50,8 @@ add_bsp_based_executable(NAME iMXRT1064_Internal_ROMAPI
 		board.h
 		clock_config.h
 		dcd.h
+		../../common/FLASHPluginCommon.cpp
 	GENERATE_BIN
 	GENERATE_MAP)
+
+target_include_directories(iMXRT1064_Internal_ROMAPI PRIVATE ../../common .)
