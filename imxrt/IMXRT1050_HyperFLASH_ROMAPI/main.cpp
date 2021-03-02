@@ -232,6 +232,9 @@ FLASHBankInfo FLASHPlugin_Probe(unsigned base, unsigned size, unsigned width1, u
 		.WriteBlockSize = MINIMUM_PROGRAMMED_BLOCK_SIZE
 	};
 	
+	if (norConfig.pageSize != MINIMUM_PROGRAMMED_BLOCK_SIZE)
+		error_trap();
+	
 	return result;
 }
 
@@ -296,6 +299,7 @@ int main(void)
 	TestFLASHProgramming(0x60000000, 0);
 #endif
 
+	asm("bkpt 255");
 
     return 0;
 }

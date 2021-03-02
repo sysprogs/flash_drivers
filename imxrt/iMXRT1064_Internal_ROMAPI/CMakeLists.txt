@@ -9,26 +9,22 @@ find_bsp(ID com.sysprogs.imported.ksdk2x.MIMXRT1064xxxxA
 		com.sysprogs.imported.ksdk2x.linker_script=devices/MIMXRT1064/gcc/MIMXRT1064xxxxx_ram.ld
 		com.sysprogs.bspoptions.arm.floatmode=-mfloat-abi=hard
 	FRAMEWORKS
-		com.sysprogs.ksdk2x_imported.utility.debug_console_lite.MIMXRT1064
-		com.sysprogs.ksdk2x_imported.platform.utilities.assert_lite.MIMXRT1064
-		com.sysprogs.ksdk2x_imported.driver.romapi.MIMXRT1064
+		com.sysprogs.ksdk2x_imported.platform.Include_common.MIMXRT1064
+		com.sysprogs.ksdk2x_imported.platform.Include_core_cm7.MIMXRT1064
+		com.sysprogs.ksdk2x_imported.platform.Include_dsp.MIMXRT1064
+		com.sysprogs.ksdk2x_imported.component.lists.MIMXRT1064
+		com.sysprogs.ksdk2x_imported.device.MIMXRT1064_CMSIS.MIMXRT1064
+		com.sysprogs.ksdk2x_imported.device.MIMXRT1064_startup.MIMXRT1064
+		com.sysprogs.ksdk2x_imported.device.MIMXRT1064_system.MIMXRT1064
 		com.sysprogs.ksdk2x_imported.platform.drivers.cache_armv7_m7.MIMXRT1064
 		com.sysprogs.ksdk2x_imported.platform.drivers.clock.MIMXRT1064
 		com.sysprogs.ksdk2x_imported.platform.drivers.common.MIMXRT1064
-		com.sysprogs.ksdk2x_imported.device.MIMXRT1064_CMSIS.MIMXRT1064
-		com.sysprogs.ksdk2x_imported.component.lpuart_adapter.MIMXRT1064
-		com.sysprogs.ksdk2x_imported.component.lists.MIMXRT1064
-		com.sysprogs.ksdk2x_imported.platform.drivers.lpuart.MIMXRT1064
-		com.sysprogs.ksdk2x_imported.device.MIMXRT1064_startup.MIMXRT1064
-		com.sysprogs.ksdk2x_imported.platform.drivers.iomuxc.MIMXRT1064
 		com.sysprogs.ksdk2x_imported.platform.drivers.igpio.MIMXRT1064
-		com.sysprogs.ksdk2x_imported.platform.drivers.xip_device.MIMXRT1064
+		com.sysprogs.ksdk2x_imported.platform.drivers.iomuxc.MIMXRT1064
+		com.sysprogs.ksdk2x_imported.driver.romapi.MIMXRT1064
 		com.sysprogs.ksdk2x_imported.platform.drivers.xip_board.MIMXRT1064
-		com.sysprogs.ksdk2x_imported.platform.Include_core_cm7.MIMXRT1064
-		com.sysprogs.ksdk2x_imported.platform.Include_common.MIMXRT1064
-		com.sysprogs.ksdk2x_imported.platform.Include_dsp.MIMXRT1064
+		com.sysprogs.ksdk2x_imported.platform.drivers.xip_device.MIMXRT1064
 		com.sysprogs.ksdk2x_imported.platform.utilities.misc_utilities.MIMXRT1064
-		com.sysprogs.ksdk2x_imported.device.MIMXRT1064_system.MIMXRT1064
 	HWREGISTER_LIST_FILE devices/MIMXRT1064/MIMXRT1064.vgdbdevice
 	C_STANDARD 99)
 

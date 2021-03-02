@@ -5,7 +5,6 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 #include "fsl_romapi.h"
-#include "fsl_debug_console.h"
 #include "fsl_cache.h"
 
 #include "pin_mux.h"
@@ -71,6 +70,9 @@ FLASHBankInfo FLASHPlugin_Probe(unsigned base, unsigned size, unsigned width1, u
 		.WriteBlockSize = MINIMUM_PROGRAMMED_BLOCK_SIZE
 	};
 	
+	if (norConfig.pageSize != MINIMUM_PROGRAMMED_BLOCK_SIZE)
+		error_trap();
+	
 	return result;
 }
 
@@ -98,8 +100,8 @@ int FLASHPlugin_Unload()
 
 int FLASHPlugin_DoProgramSync(unsigned startOffset, const void *pData, int bytesToWrite)
 {
-	int sectors = bytesToWrite / FLASH_PAGE_SIZE;
-	for (int i = 0; i < sectors; i++)
+	int pages = bytesToWrite / FLASH_PAGE_SIZE;
+	for (int i = 0; i < pages; i++)
 	{
 		status_t status = ROM_FLEXSPI_NorFlash_ProgramPage(FlexSpiInstance,
 			&norConfig,
@@ -110,7 +112,7 @@ int FLASHPlugin_DoProgramSync(unsigned startOffset, const void *pData, int bytes
 			return i * FLASH_PAGE_SIZE;
 	}
 	
-	return sectors * FLASH_PAGE_SIZE;
+	return pages * FLASH_PAGE_SIZE;
 }
 
 int main(void)
@@ -147,7 +149,8 @@ int main(void)
 
 #ifdef DEBUG
 	TestFLASHProgramming(0x70000000, 0);
+	asm("bkpt 255");    //Self-test passed
 #endif
-
+	
     return 0;
 }
