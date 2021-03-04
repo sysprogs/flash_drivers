@@ -119,7 +119,7 @@ int main(void)
 {
     //BOARD_ConfigMPU();
     BOARD_InitPins();
-    //BOARD_BootClockRUN();
+    BOARD_BootClockRUN();
 
     serial_nor_config_option_t option;
     memset(&option, 0U, sizeof(option));

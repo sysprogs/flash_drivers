@@ -281,7 +281,7 @@ int main(void)
 {
     //BOARD_ConfigMPU();
     BOARD_InitPins();
-    //BOARD_BootClockRUN();
+    BOARD_BootClockRUN();
 	
 	memset(&norConfig, 0, sizeof(flexspi_nor_config_t));
 
@@ -298,6 +298,7 @@ int main(void)
 #ifdef DEBUG
 	TestFLASHProgramming(0x60000000, 0);
 #endif
+
 
 	asm("bkpt 255");
 
