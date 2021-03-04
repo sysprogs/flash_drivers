@@ -89,7 +89,7 @@ extern "C"
     //This optional function should program a block of memory at a given offset. 'startOffset' specifies offset in bytes from the beginning of the FLASH bank. 
     //The function should return 0 on success, error code on failure.
     //WARNING: Only implement this function if you encounter problems with FLASHPlugin_ProgramAsync().
-    int FLASHPlugin_ProgramSync(unsigned startOffset,const void *pData, unsigned bytesToWrite);
+    int FLASHPlugin_ProgramSync(unsigned startOffset, const void *pData, unsigned bytesToWrite);
     
     //This function performs asynchronous programming. OpenOCD will modify the WritePointer field of 'pData' each time it writes new data to the buffer and will expect the function to
     //update the ReadPointer field each time it reads a chunk of data. The WritePointer/ReadPointer will only be updated in multiples of WriteBlockSize returned in FLASHPlugin_Probe().

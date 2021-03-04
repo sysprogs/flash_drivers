@@ -1,5 +1,6 @@
 #include "FLASHPluginInterface.h"
 #include "FLASHPluginConfig.h"
+#include <memory.h>
 
 #ifndef MINIMUM_PROGRAMMED_BLOCK_SIZE
 #error Please define MINIMUM_PROGRAMMED_BLOCK_SIZE in your FLASHPluginConfig.h
@@ -43,7 +44,11 @@ volatile void * __attribute__((used)) g_FunctionTable[] = {
     (void *)&FLASHPlugin_Probe,
     (void *)&FLASHPlugin_FindWorkArea,
     (void *)&FLASHPlugin_EraseSectors,
+#if FLASH_PLUGIN_SUPPORT_ASYNC_PROGRAMMING
     (void *)&FLASHPlugin_ProgramAsync,
+#else
+    (void *)&FLASHPlugin_ProgramSync,
+#endif
     
     (void *)&FLASHPlugin_ProtectSectors,
     (void *)&FLASHPlugin_CheckSectorProtection,
@@ -132,6 +137,17 @@ int FLASHPlugin_ProgramAsync(unsigned startOffset, FIFOHeader *pData, const void
 
     return done;
 }
+#else
+int FLASHPlugin_ProgramSync(unsigned startOffset, const void *pData, unsigned bytesToWrite)
+{
+	if (bytesToWrite < MINIMUM_PROGRAMMED_BLOCK_SIZE)
+	{
+		memset((char *)pData + bytesToWrite, 0xFF, MINIMUM_PROGRAMMED_BLOCK_SIZE - bytesToWrite);
+		bytesToWrite = MINIMUM_PROGRAMMED_BLOCK_SIZE;
+	}
+	
+	return FLASHPlugin_DoProgramSync(startOffset, pData, bytesToWrite);
+}
 #endif
 
 
@@ -147,6 +163,8 @@ void TestFLASHProgramming(unsigned base, unsigned size)
     if (result <= 0)
         asm("bkpt 255");
     
+#if FLASH_PLUGIN_SUPPORT_ASYNC_PROGRAMMING
+	
     FIFOHeader *pHeader = (FIFOHeader *)alloca(sizeof(FIFOHeader) + info.WriteBlockSize * 2);
     pHeader->WritePointer = pHeader->ReadPointer = (char *)(pHeader + 1);
 	memset(pHeader + 1, 0x55, info.WriteBlockSize);
@@ -162,4 +180,10 @@ void TestFLASHProgramming(unsigned base, unsigned size)
     //After FLASHPlugin_ProgramAsync() data, it should set the ReadPointer at the end of the consumed block.
     if(pHeader->ReadPointer != pHeader->WritePointer)
         asm("bkpt 255");
+	
+#else
+	void *pData = (FIFOHeader *)alloca(info.WriteBlockSize);
+	memset(pData, 0x55, info.WriteBlockSize);
+	FLASHPlugin_ProgramSync(0, pData, info.WriteBlockSize);
+#endif
 }
