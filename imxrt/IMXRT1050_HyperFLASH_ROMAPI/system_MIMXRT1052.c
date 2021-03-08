@@ -120,18 +120,6 @@ void SystemInit (void) {
     }
 
 
-/* Enable instruction and data caches */
-#if defined(__ICACHE_PRESENT) && __ICACHE_PRESENT
-    if (SCB_CCR_IC_Msk != (SCB_CCR_IC_Msk & SCB->CCR)) {
-        SCB_EnableICache();
-    }
-#endif
-#if defined(__DCACHE_PRESENT) && __DCACHE_PRESENT
-    if (SCB_CCR_DC_Msk != (SCB_CCR_DC_Msk & SCB->CCR)) {
-        SCB_EnableDCache();
-    }
-#endif
-
   SystemInitHook();
 }
 
