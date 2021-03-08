@@ -50,6 +50,9 @@ add_bsp_based_executable(NAME IMXRT1050_HyperFLASH_ROMAPI
 		clock_config.h
 		dcd.h
 		../../common/FLASHPluginCommon.cpp
+		system_MIMXRT1052.c
 	GENERATE_BIN
-	GENERATE_MAP)
+	GENERATE_MAP
+	LINKER_SCRIPT MIMXRT1052xxxxx_ram.ld)
 target_include_directories(IMXRT1050_HyperFLASH_ROMAPI PRIVATE ../../common .)
+set_source_files_properties(${BSP_ROOT}/devices/MIMXRT1052/system_MIMXRT1052.c PROPERTIES HEADER_FILE_ONLY TRUE)

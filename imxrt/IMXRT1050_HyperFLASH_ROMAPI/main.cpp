@@ -281,7 +281,7 @@ int main(void)
 {
     //BOARD_ConfigMPU();
     BOARD_InitPins();
-    BOARD_BootClockRUN();
+    //BOARD_BootClockRUN();
 	
 	memset(&norConfig, 0, sizeof(flexspi_nor_config_t));
 
