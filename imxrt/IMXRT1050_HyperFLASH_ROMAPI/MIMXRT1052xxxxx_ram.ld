@@ -154,7 +154,7 @@ SECTIONS
   } > OCRAM
 
   __NDATA_ROM = __DATA_ROM + (__data_end__ - __data_start__);
-  .ncache.init : AT(__NDATA_ROM)
+  .ncache.init :
   {
     __noncachedata_start__ = .;   /* create a global symbol at ncache data start */
     *(NonCacheable.init)
