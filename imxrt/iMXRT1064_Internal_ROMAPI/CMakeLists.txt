@@ -47,7 +47,10 @@ add_bsp_based_executable(NAME iMXRT1064_Internal_ROMAPI
 		clock_config.h
 		dcd.h
 		../../common/FLASHPluginCommon.cpp
+		system_MIMXRT1064.c
 	GENERATE_BIN
-	GENERATE_MAP)
+	GENERATE_MAP
+	LINKER_SCRIPT MIMXRT1064xxxxx_ram.ld)
 
 target_include_directories(iMXRT1064_Internal_ROMAPI PRIVATE ../../common .)
+set_source_files_properties(${BSP_ROOT}/devices/MIMXRT1064/system_MIMXRT1064.c PROPERTIES HEADER_FILE_ONLY TRUE)
