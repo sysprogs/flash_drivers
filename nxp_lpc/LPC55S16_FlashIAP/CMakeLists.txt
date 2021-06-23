@@ -37,7 +37,7 @@ bsp_include_directories(${BSP_ROOT}/boards/lpcxpresso55s16/driver_examples/flash
 bsp_compile_definitions(CPU_LPC55S16JBD100)
 
 add_bsp_based_executable(NAME LPC55S16_FlashIAP
-	SOURCES main.cpp clock_config.c pin_mux.h board.h clock_config.h ../../common/FLASHPluginCommon.cpp
+	SOURCES main.cpp clock_config.c clock_config.h ../../common/FLASHPluginCommon.cpp
 	GENERATE_BIN
 	GENERATE_MAP)
 
