@@ -48,15 +48,8 @@ int main()
     /* set BOD VBAT level to 1.65V */
     POWER_SetBodVbatLevel(kPOWER_BodVbatLevel1650mv, kPOWER_BodHystLevel50mv, false);
     /* attach 12 MHz clock to FLEXCOMM0 (debug console) */
-    CLOCK_AttachClk(BOARD_DEBUG_UART_CLK_ATTACH);
-    /* enable clock for GPIO*/
-    CLOCK_EnableClock(kCLOCK_Gpio0);
-    CLOCK_EnableClock(kCLOCK_Gpio1);
 
-    BOARD_InitBootPins();
     BOARD_BootClockFROHF96M();
-    BOARD_InitDebugConsole();
-
     /* Print basic information for Flash Driver API.*/
     PRINTF("\r\nFlash driver API tree Demo Application...\r\n");
     /* Initialize flash driver */
