@@ -40,9 +40,15 @@ bsp_compile_definitions(CPU_LPC54628
 	CPU_LPC54628J512ET180=1)
 
 add_bsp_based_executable(NAME LPC54628_FlashIAP
-	SOURCES flashiap.c pin_mux.c board.c clock_config.c pin_mux.h board.h clock_config.h
+	SOURCES
+		main.cpp
+		clock_config.c
+		clock_config.h
+		../../common/FLASHPluginCommon.cpp
+		FLASHPluginConfig.h
 	GENERATE_BIN
 	GENERATE_MAP)
 
 
 target_link_libraries(LPC54628_FlashIAP PUBLIC ${BSP_ROOT}/devices/LPC54628/gcc/libpower_hardabi.a)
+target_include_directories(LPC54628_FlashIAP PRIVATE ../../common .)
