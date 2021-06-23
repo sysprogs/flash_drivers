@@ -1,0 +1,1 @@
+/* This file allows building BSP targets even if all sources were removed by conditions */

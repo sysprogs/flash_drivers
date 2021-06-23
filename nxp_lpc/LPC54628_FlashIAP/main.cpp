@@ -7,7 +7,7 @@
  */
 
 #include "pin_mux.h"
-#include "board.h"
+#include "clock_config.h"
 #include "fsl_flashiap.h"
 #include "fsl_common.h"
 

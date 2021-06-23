@@ -5,12 +5,11 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include "pin_mux.h"
-#include "board.h"
 #include "fsl_iap.h"
 #include "fsl_iap_ffr.h"
 #include "fsl_common.h"
 #include "fsl_power.h"
+#include "clock_config.h"
 
 #include <FLASHPluginInterface.h>
 #include <FLASHPluginConfig.h>
