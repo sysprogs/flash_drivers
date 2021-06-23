@@ -41,5 +41,4 @@ add_bsp_based_executable(NAME LPC55S16_FlashIAP
 	GENERATE_BIN
 	GENERATE_MAP)
 
-target_link_libraries(LPC55S16_FlashIAP PUBLIC ${BSP_ROOT}/devices/LPC55S16/gcc/libpower_hardabi.a)
 target_include_directories(LPC55S16_FlashIAP PRIVATE ../../common .)

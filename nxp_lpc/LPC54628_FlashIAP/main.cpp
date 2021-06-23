@@ -23,8 +23,8 @@ FLASHBankInfo FLASHPlugin_Probe(unsigned base, unsigned size, unsigned width1, u
 {
 	FLASHBankInfo result = {
 		.BaseAddress = base, 
-		.BlockCount = FSL_FEATURE_SYSCON_FLASH_SIZE_BYTES / FSL_FEATURE_SYSCON_FLASH_SIZE_BYTES,
-		.BlockSize = FSL_FEATURE_SYSCON_FLASH_SIZE_BYTES,
+		.BlockCount = FSL_FEATURE_SYSCON_FLASH_SIZE_BYTES / FSL_FEATURE_SYSCON_FLASH_SECTOR_SIZE_BYTES,
+		.BlockSize = FSL_FEATURE_SYSCON_FLASH_SECTOR_SIZE_BYTES,
 		.WriteBlockSize = MINIMUM_PROGRAMMED_BLOCK_SIZE
 	};
 	
@@ -61,31 +61,50 @@ static char __attribute__((aligned(FSL_FEATURE_SYSCON_FLASH_PAGE_SIZE_BYTES))) s
 
 int FLASHPlugin_DoProgramSync(unsigned startOffset, const void *pData, int bytesToWrite)
 {
-	status_t status = FLASHIAP_PrepareSectorForWrite(startOffset / FSL_FEATURE_SYSCON_FLASH_SECTOR_SIZE_BYTES, (startOffset + bytesToWrite) / FSL_FEATURE_SYSCON_FLASH_SECTOR_SIZE_BYTES);
-	if (status != kStatus_Success)
-		error_trap();
-	
 	int sectors = bytesToWrite / FSL_FEATURE_SYSCON_FLASH_PAGE_SIZE_BYTES;
-	for (int i = 0; i < sectors; i++)
+	int i;
+	for (i = 0; i < sectors; i++)
 	{
 		memcpy(s_PageBuffer, ((char *)pData + i  * FSL_FEATURE_SYSCON_FLASH_PAGE_SIZE_BYTES), FSL_FEATURE_SYSCON_FLASH_PAGE_SIZE_BYTES);
 		
-		status = FLASHIAP_CopyRamToFlash(startOffset + i  * FSL_FEATURE_SYSCON_FLASH_PAGE_SIZE_BYTES,
+		unsigned offsetInFLASH = startOffset + i  * FSL_FEATURE_SYSCON_FLASH_PAGE_SIZE_BYTES;
+		if (offsetInFLASH == 0)
+		{
+			//The IAP interface will refuse to write first page of the ROM unless the contents look like a 'valid' image.
+			//The criteria for a 'valid' image are described in section 5.3.5 of UM10912 (rev. 2.4).
+			//Specifically, the sum of the first 8 vectors in an image must be 0. 
+			//We patch the image on-the-fly in order to make sure it is accepted by the IAP.
+			uint32_t *pVectors = (uint32_t *)s_PageBuffer;
+			uint32_t sum = 0;
+			for (int j = 0; j < 7; j++)
+				sum += pVectors[j];
+			
+			pVectors[7] = 0 - sum;			
+		}
+		
+		status_t status = FLASHIAP_PrepareSectorForWrite(offsetInFLASH / FSL_FEATURE_SYSCON_FLASH_SECTOR_SIZE_BYTES, offsetInFLASH / FSL_FEATURE_SYSCON_FLASH_SECTOR_SIZE_BYTES);
+		if (status != kStatus_Success)
+			break;
+
+		status = FLASHIAP_CopyRamToFlash(offsetInFLASH,
 			(uint32_t *)s_PageBuffer,
 			FSL_FEATURE_SYSCON_FLASH_PAGE_SIZE_BYTES,
 			SystemCoreClock);
 		
 		if (status != kStatus_Success)
-			return i * FSL_FEATURE_SYSCON_FLASH_PAGE_SIZE_BYTES;
+			break;
 	}
 	
-	return sectors * FSL_FEATURE_SYSCON_FLASH_PAGE_SIZE_BYTES;
+	if (!i)
+		return -1;
+	
+	return i * FSL_FEATURE_SYSCON_FLASH_PAGE_SIZE_BYTES;
 }
 
 
 int main(void)
 {
-    BOARD_BootClockPLL220M();
+	BOARD_BootClockFROHF48M();
 	FLASHPlugin_InitDone();
     
 #ifdef DEBUG
