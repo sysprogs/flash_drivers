@@ -10,7 +10,7 @@ MEMORY
 	FLASH (RX) : ORIGIN = 0x08000000, LENGTH = 1M
 	SRAM (RWX) : ORIGIN = 0x20000000, LENGTH = 320K
 	/* --- begin generated external memories -- */
-	QSPI (RX) : ORIGIN = 0x90000000, LENGTH = 1024K
+	QSPI (RX) : ORIGIN = 0x90000000, LENGTH = 64K
 	/* --- end generated external memories -- */
 }
 
@@ -88,10 +88,7 @@ SECTIONS
 		PROVIDE(__fini_array_end = .);
 	} > FLASH
 
-	. = ALIGN(4);
-	_sidata = .;
-
-	.data : AT(_sidata)
+	.data :
 	{
 		. = ALIGN(4);
 		_sdata = .;
@@ -103,7 +100,9 @@ SECTIONS
 		_edata = .;
 
 		PROVIDE(__data_end__ = _edata);
-	} > SRAM
+	} > SRAM AT >FLASH
+
+	_sidata = LOADADDR(.data);
 
 	.bss :
 	{
@@ -166,6 +165,24 @@ SECTIONS
 
 
 	PROVIDE(end = .);
+
+	.heap (NOLOAD) :
+	{
+		. = ALIGN(4);
+		PROVIDE(__heap_start__ = .);
+		KEEP(*(.heap))
+		. = ALIGN(4);
+		PROVIDE(__heap_end__ = .);
+	} > SRAM
+
+	.reserved_for_stack (NOLOAD) :
+	{
+		. = ALIGN(4);
+		PROVIDE(__reserved_for_stack_start__ = .);
+		KEEP(*(.reserved_for_stack))
+		. = ALIGN(4);
+		PROVIDE(__reserved_for_stack_end__ = .);
+	} > SRAM
 
 }
 

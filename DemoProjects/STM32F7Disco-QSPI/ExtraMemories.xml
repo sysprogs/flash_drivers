@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<ArrayOfExtraMemoryDefinition xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ExtraMemoryDefinition>
+    <Name>QSPI</Name>
+    <Address>2415919104</Address>
+    <Size>65536</Size>
+    <Type>FLASH</Type>
+    <ContainsText>true</ContainsText>
+    <ContainsData>true</ContainsData>
+    <ContainsBSS>true</ContainsBSS>
+    <GenerateBinFile>false</GenerateBinFile>
+    <PreserveUnusedSymbols>false</PreserveUnusedSymbols>
+    <NoAutoLoad>false</NoAutoLoad>
+  </ExtraMemoryDefinition>
+</ArrayOfExtraMemoryDefinition>
